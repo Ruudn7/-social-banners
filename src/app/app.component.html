@@ -2,22 +2,22 @@
 <nav>
   <div class="nav-wrapper black">
     <a class="brand-logo">Social Banners</a>
-    <a href="#" class="brand-logo center">
+    <a href="#" class="brand-logo center" (click)="saveImage(banner)">
       Pobierz
     </a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a>Horizontal</a></li>
-      <li><a>Horizontal Reverse</a></li>
-      <li><a>Vertical</a></li>
-      <li><a>Vertical Reverse</a></li>
+      <li><a (click)="setLayout('horizontal')">Horizontal</a></li>
+      <li><a (click)="setLayout('horizontalRev')">Horizontal Reverse</a></li>
+      <li><a (click)="setLayout('vertical')">Vertical</a></li>
+      <li><a (click)="setLayout('verticalRev')">Vertical Reverse</a></li>
     </ul>
   </div>
 </nav>
 <!-- Component Navbar End -->
 
-<div>
+<div [ngClass]="layout">
   <!-- Component Banner -->
-  <div class="banner" [ngStyle]="getBannerStyles()">
+  <div class="banner" [ngStyle]="getBannerStyles()" #banner>
     <div class="banner-text">
       <span contenteditable="true" [style.fontSize.px]="fontSize">
         Zacznij programować w Angularze
